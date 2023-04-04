@@ -1,6 +1,9 @@
 package com.marat.test.config;
 
-public class WebDriverConfig {
+import java.net.MalformedURLException;
+import java.net.URL;
+
+//public class WebDriverConfig {
 
 //    public Browser getBrowser() {
 //        String browserName = System.getProperty("browser");
@@ -20,4 +23,4 @@ public class WebDriverConfig {
 //            throw new RuntimeException(e);
 //        }
 //    }
-}
+//}

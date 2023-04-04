@@ -1,6 +1,7 @@
 package com.marat.test.config;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -17,7 +18,9 @@ public class WebDriverProvider implements Supplier<WebDriver> {
     public WebDriver get() {
         if(config.getBrowser().equals(Browser.EDGE)) {
             return new EdgeDriver();
+        } else if (config.getBrowser().equals(Browser.FIREFOX)) {
+            return new FirefoxDriver();
         }
-        return new FirefoxDriver();
+        return new ChromeDriver();
     }
 }

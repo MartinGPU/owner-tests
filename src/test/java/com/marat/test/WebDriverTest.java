@@ -5,7 +5,6 @@ import com.marat.test.config.WebDriverProvider;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,15 +16,9 @@ public class WebDriverTest {
     @Test
     public void TestTitle() {
         WebDriver driver = provider.get();
-        driver.get(config.getBaseUrl());
+        driver.get(config.baseUrl());
+        System.out.println(driver);
         assertEquals("GitHub: Let’s build from here · GitHub", driver.getTitle());
         driver.quit();
-    }
-
-    private WebDriver getDriver() {
-        return new EdgeDriver();
-    }
-    private String getBaseUrl() {
-        return "https://github.com";
     }
 }

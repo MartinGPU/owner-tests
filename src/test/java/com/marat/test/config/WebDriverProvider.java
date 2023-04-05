@@ -1,5 +1,6 @@
 package com.marat.test.config;
 
+import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -16,9 +17,13 @@ public class WebDriverProvider implements Supplier<WebDriver> {
 
     @Override
     public WebDriver get() {
-        if(config.getBrowser().equals(Browser.EDGE)) {
+        Configuration.browser = config.browser();
+        Configuration.browserVersion = config.browserVersion();
+        Configuration.baseUrl = config.baseUrl();
+
+        if (config.browserVersion().equals("111")) {
             return new EdgeDriver();
-        } else if (config.getBrowser().equals(Browser.FIREFOX)) {
+        } else if (config.browserVersion().equals("100")) {
             return new FirefoxDriver();
         }
         return new ChromeDriver();

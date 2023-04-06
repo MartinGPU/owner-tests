@@ -1,31 +1,42 @@
 package com.marat.test.config;
 
-import com.codeborne.selenide.Configuration;
+import org.aeonbits.owner.ConfigFactory;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public class WebDriverProvider implements Supplier<WebDriver> {
 
-    private SimpleWebDriverConfig config;
-    public WebDriverProvider (final SimpleWebDriverConfig config) {
-        this.config = config;
+    private final WebDriverConfig config;
+
+    public WebDriverProvider() {
+//        config = new HugeWebDriverConfig();
+        config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
     }
 
     @Override
     public WebDriver get() {
-        Configuration.browser = config.browser();
-        Configuration.browserVersion = config.browserVersion();
-        Configuration.baseUrl = config.baseUrl();
+        WebDriver driver = createWebDriver();
+        driver.get(config.getBaseUrl());
+        return driver;
+    }
 
-        if (config.browserVersion().equals("111")) {
-            return new EdgeDriver();
-        } else if (config.browserVersion().equals("100")) {
-            return new FirefoxDriver();
+    private WebDriver createWebDriver() {
+        if (Objects.isNull(config.getRemoteUrl())) {
+            if (config.getBrowser().equals(Browser.FIREFOX)) {
+                return new FirefoxDriver();
+            }
+            if (config.getBrowser().equals(Browser.EDGE)) {
+                return new EdgeDriver();
+            }
+        } else {
+            return new RemoteWebDriver(config.getRemoteUrl(), (Capabilities) org.openqa.selenium.remote.Browser.CHROME);
         }
-        return new ChromeDriver();
+        throw new NullPointerException("No such browser");
     }
 }

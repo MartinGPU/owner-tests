@@ -47,6 +47,7 @@ dependencies {
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
+            'org.seleniumhq.selenium:selenium-java:4.8.1',
             "org.aeonbits.owner:owner:$ownerVersion",
             "org.junit.jupiter:junit-jupiter:$junitVersion",
             "io.rest-assured:rest-assured:$restAssuredVersion",

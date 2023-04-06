@@ -1,26 +1,19 @@
 package com.marat.test.config;
 
-import java.net.MalformedURLException;
+import org.aeonbits.owner.Config;
+
 import java.net.URL;
 
-//public class WebDriverConfig {
+public interface WebDriverConfig extends Config {
 
-//    public Browser getBrowser() {
-//        String browserName = System.getProperty("browser");
-//        return Browser.valueOf(browserName);
-//    }
-//
-//    public String getBaseUrl() {
-//        String baseUrl = System.getProperty("Url", "https://github.com");
-//        return String.valueOf(baseUrl);
-//    }
-//
-//    public URL getRemoteUrl() {
-//        String remoteUrl = System.getProperty("remoteUrl");
-//        try {
-//            return new URL(remoteUrl);
-//        } catch (MalformedURLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-//}
+    @Key("browser")
+    @DefaultValue("EDGE")
+    Browser getBrowser();
+
+    @Key("remoteUrl")
+    URL getRemoteUrl();
+
+    @Key("baseUrl")
+    @DefaultValue("https://github.com")
+    String getBaseUrl();
+}

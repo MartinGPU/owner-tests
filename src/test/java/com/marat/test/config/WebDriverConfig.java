@@ -10,7 +10,7 @@ public interface WebDriverConfig extends Config {
     @DefaultValue("EDGE")
     Browser getBrowser();
 
-    @Key("remoteUrl")
+    @Key("browserVersion")
     URL getRemoteUrl();
 
     @Key("baseUrl")

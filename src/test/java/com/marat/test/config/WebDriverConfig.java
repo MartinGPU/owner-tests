@@ -2,18 +2,20 @@ package com.marat.test.config;
 
 import org.aeonbits.owner.Config;
 
-import java.net.URL;
-
 public interface WebDriverConfig extends Config {
 
     @Key("browser")
-    @DefaultValue("EDGE")
+    @DefaultValue("FIREFOX")
     Browser getBrowser();
 
     @Key("browserVersion")
-    URL getRemoteUrl();
+    @DefaultValue("100.0")
+    Double getVersion();
 
     @Key("baseUrl")
     @DefaultValue("https://github.com")
     String getBaseUrl();
+
+    @Key("remoteUrl")
+    String remoteUrl();
 }

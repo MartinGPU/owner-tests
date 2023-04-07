@@ -2,17 +2,18 @@ package com.marat.test.config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources("classpath:${env}.properties")
-public interface WebConfig extends Config {
+import java.net.URL;
+
+public interface RemoteWebDriverConfig extends Config {
 
     @Key("browser.name")
     @DefaultValue("CHROME")
     String browserName();
 
     @Key("browser.version")
-    @DefaultValue("111")
-    String browserVersion();
+    @DefaultValue("111.0")
+    Double browserVersion();
 
     @Key("remote.url")
-    String remoteUrl();
+    URL remoteUrl();
 }

@@ -15,7 +15,6 @@ public class WebDriverProvider implements Supplier<WebDriver> {
     private final WebDriverConfig config;
 
     public WebDriverProvider() {
-//        config = new HugeWebDriverConfig();
         config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
     }
 

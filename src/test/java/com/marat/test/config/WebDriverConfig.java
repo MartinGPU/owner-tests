@@ -2,6 +2,9 @@ package com.marat.test.config;
 
 import org.aeonbits.owner.Config;
 
+import java.net.URL;
+
+@Config.Sources({"classpath:${web}.properties"})
 public interface WebDriverConfig extends Config {
 
     @Key("browser")
@@ -9,7 +12,7 @@ public interface WebDriverConfig extends Config {
     Browser getBrowser();
 
     @Key("browserVersion")
-    @DefaultValue("100.0")
+    @DefaultValue("110.0")
     Double getVersion();
 
     @Key("baseUrl")
@@ -17,5 +20,5 @@ public interface WebDriverConfig extends Config {
     String getBaseUrl();
 
     @Key("remoteUrl")
-    String remoteUrl();
+    URL getRemoteUrl();
 }

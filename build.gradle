@@ -83,14 +83,26 @@ tasks.withType(Test) {
     }
 }
 
-task vk_run_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags "vk"
-    }
-}
-
-task github_run_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags "github"
-    }
-}
+//task local_tests(type: Test) {
+//    useJUnitPlatform {
+//        includeTags "local"
+//    }
+//}
+//
+//task web_driver_tests(type: Test) {
+//    useJUnitPlatform {
+//        includeTags "web_driver"
+//    }
+//}
+//
+//task remote_tests(type: Test) {
+//    useJUnitPlatform {
+//        includeTags "remote"
+//    }
+//}
+//
+//task web_driver_remote_tests(type: Test) {
+//    useJUnitPlatform {
+//        includeTags "web_driver_remote"
+//    }
+//}

@@ -83,14 +83,8 @@ tasks.withType(Test) {
     }
 }
 
-task vk_run_tests(type: Test) {
+task hotels_tests(type: Test) {
     useJUnitPlatform {
-        includeTags "vk"
     }
 }
 
-task github_run_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags "github"
-    }
-}

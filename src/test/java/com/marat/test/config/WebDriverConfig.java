@@ -6,7 +6,7 @@ import org.aeonbits.owner.Config;
 public interface WebDriverConfig extends Config {
 
     @Key("browser.name")
-    @DefaultValue("EDGE")
+    @DefaultValue("firefox")
     String getBrowser();
 
     @Key("browser.size")
@@ -14,7 +14,7 @@ public interface WebDriverConfig extends Config {
     String getSize();
 
     @Key("browser.version")
-    @DefaultValue("111.0")
+    @DefaultValue("100.0")
     String getVersion();
 
     @Key("base.url")

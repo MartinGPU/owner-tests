@@ -15,7 +15,6 @@ public class WebDriverProvider {
         Configuration.browserSize = WebDriverProvider.config.getSize();
         String remoteUrl = WebDriverProvider.config.getRemoteUrl();
 
-
         if (remoteUrl != null) {
             Configuration.remote = WebDriverProvider.config.getRemoteUrl();
         }
@@ -24,6 +23,5 @@ public class WebDriverProvider {
         Configuration.browserCapabilities = capabilities;
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
-
     }
 }
